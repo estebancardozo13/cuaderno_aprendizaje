@@ -369,47 +369,60 @@ EJEMPLO:
 <!-- Si queremos ir a un punto especifico pero de otra pagina -->
 <a href="/index.html#post-1">Ir a post 1</a>
 ```
+
 # 12. Introducción a las listas
+
 Sirven para listar contenido en función al tipo de contenido que queremos listar
 
 Tenemos 3 tipos de lista:
-* ul => **unordered list**: Se utilizan cuando no importa el orden de los elementos (EJ: Lista de compras)
+
+- ul => **unordered list**: Se utilizan cuando no importa el orden de los elementos (EJ: Lista de compras)
+
 ```html
 <ul>
   <!-- Li es utilizado para colocar elementos -->
-    <li>Arroz</li>
-    <li>Pan</li>
-    <li>Leche</li>
-    <li>huevos</li>
-  </ul>
+  <li>Arroz</li>
+  <li>Pan</li>
+  <li>Leche</li>
+  <li>huevos</li>
+</ul>
 ```
-* ol => **ordered list**: Se utilizan cuando el orden SI importa (EJ: Top 10)
+
+- ol => **ordered list**: Se utilizan cuando el orden SI importa (EJ: Top 10)
+
 ```html
 <!-- Lenguajes a aprender en orden -->
- <ol>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-  </ol>
+<ol>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+</ol>
 ```
-* dl => **definition list**: Se utiliza para hacer una lista de definiciones (EJ: Diccionario)
+
+- dl => **definition list**: Se utiliza para hacer una lista de definiciones (EJ: Diccionario)
+
 ```html
- <!-- <dt> Termino que vamos a definir -->
- <!--<dd> Definición del termino  -->
-  <dl>
-   
-    <dt>HTML</dt>
-    <dd>HyperText Markup Languaje: Es un lenguaje de marcado y estructura</dd>
+<!-- <dt> Termino que vamos a definir -->
+<!--<dd> Definición del termino  -->
+<dl>
+  <dt>HTML</dt>
+  <dd>HyperText Markup Languaje: Es un lenguaje de marcado y estructura</dd>
 
-    <dt>CSS</dt>
-    <dd>Cascade Style Sheets: Es un lenguaje de diseño que sirve para dar estilos al HTML </dd>
+  <dt>CSS</dt>
+  <dd>
+    Cascade Style Sheets: Es un lenguaje de diseño que sirve para dar estilos al
+    HTML
+  </dd>
 
-    <dt>JavaScript</dt>
-    <dd>Es un lenguaje de programacion para dar interactividad a un sitio web</dd>
-  </dl>
+  <dt>JavaScript</dt>
+  <dd>Es un lenguaje de programacion para dar interactividad a un sitio web</dd>
+</dl>
 ```
+
 ## Listas anidadas
+
 Es posible tener una lista dentro de otra y asi infinitamente
+
 ```html
 <ul>
   <li>
@@ -422,159 +435,179 @@ Es posible tener una lista dentro de otra y asi infinitamente
   </li>
 </ul>
 ```
+
 ## Atributos de las listas
-### Listas ordenadas 
+
+### Listas ordenadas
+
 type => Estilo de enumaración (1,a,I,A)
 start => Inicio de la secuencia (Desde que numero queremos que inicie la lista)
+
 ### Listas Desordenadas
+
 type => Estilo de los items (circulo, cuadrado..., Esto se hace casi siempre desde CSS)
 
-# 13.  Introducción a las tablas 
+# 13. Introducción a las tablas
+
 Sirven para mostrar un contenido de forma tabulada
+
 ## Etiquetas necesarias
-* Table => Encierra una tabla 
-* tr => **Table row:** Construye una fila
-* td => **Tabla data:** Construye una celda
-* Caption => Para los titulos de las tablas (OPCIONAL)
-* thead => Para establecer las cabeceras de la tabla, cuando queremos establecer una celda como cabecera usamos "th" en lugar de "td"
-* tbody => Es el cuerpo de la tabla, es OPCIONAL mientras no utilizemos THEAD, si lo utilizamos, TBODY se vuelve obligatorio
-* tfood => Sirve para colocar un pie de tabla es completamente OPCIONAL
+
+- Table => Encierra una tabla
+- tr => **Table row:** Construye una fila
+- td => **Tabla data:** Construye una celda
+- Caption => Para los titulos de las tablas (OPCIONAL)
+- thead => Para establecer las cabeceras de la tabla, cuando queremos establecer una celda como cabecera usamos "th" en lugar de "td"
+- tbody => Es el cuerpo de la tabla, es OPCIONAL mientras no utilizemos THEAD, si lo utilizamos, TBODY se vuelve obligatorio
+- tfood => Sirve para colocar un pie de tabla es completamente OPCIONAL
 
 ## Atributos de las tablas
-* Rowspan => Sirve para que una celda ocupe mas de una fila, el valor por defecto es 1
 
-* Colspan = Sirve para que una celda ocupe mas de una Columna, el valor por defecto es 1
+- Rowspan => Sirve para que una celda ocupe mas de una fila, el valor por defecto es 1
+
+- Colspan = Sirve para que una celda ocupe mas de una Columna, el valor por defecto es 1
 
 PD: Hay que tener muy en cuenta como agrandamos las celdas, porque de hacerlo mal puede ROMPER la tabla
 
 ## Seleccionar Columnas (Colgroup & col)
-* Para seleccionar una fila tenemos "TR" pero a la hora de seleccionar una columna es mas dificil
 
-* Para seleccionar una columna tenemos la etiqueta **"Colgropup"** y dentro de esta usamos la etiqueta **"col"** la primera etiqueta **"col"** equivaldra a la primera columna y asi respectivamente con todas
+- Para seleccionar una fila tenemos "TR" pero a la hora de seleccionar una columna es mas dificil
 
-* Si necesitamos que una etiqueta **"col"** abarque mas de una COLUMNA usaremos el atributo span.
+- Para seleccionar una columna tenemos la etiqueta **"Colgropup"** y dentro de esta usamos la etiqueta **"col"** la primera etiqueta **"col"** equivaldra a la primera columna y asi respectivamente con todas
+
+- Si necesitamos que una etiqueta **"col"** abarque mas de una COLUMNA usaremos el atributo span.
   ```html
   <!-- # de columnas que queremos que abarque -->
-  <col span="3"> 
+  <col span="3" />
   ```
 
-
 ## EJEMPLO
- ```html
- <table>
-   <!-- Titulo de la tabla -->
-    <caption>Horario de Clases</caption>
 
-    <!-- Para seleccionar las columnas -->
-    <colgroup>
-      <col>
-      <col>
-      <col>
-      <col>
-      <col>
-      <col>
-    </colgroup>
+```html
+<table>
+  <!-- Titulo de la tabla -->
+  <caption>
+    Horario de Clases
+  </caption>
 
+  <!-- Para seleccionar las columnas -->
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
 
-    <!-- Fila de enzabezado de la tabla-->
-    <thead>
-      <tr>
-        <!-- Celdas encabezado (van con TH) -->
-        <th>Hora/Dia</th>
-        <th>Lunes</th>
-        <th>Martes</th>
-        <th>Miercoles</th>
-        <th>Jueves</th>
-        <th>Viernes</th>
-      </tr>
-    </thead>
+  <!-- Fila de enzabezado de la tabla-->
+  <thead>
+    <tr>
+      <!-- Celdas encabezado (van con TH) -->
+      <th>Hora/Dia</th>
+      <th>Lunes</th>
+      <th>Martes</th>
+      <th>Miercoles</th>
+      <th>Jueves</th>
+      <th>Viernes</th>
+    </tr>
+  </thead>
 
-    <!-- Cuerpo de la tabla -->
-    <tbody>
-      <!-- Fila y celdas regulares -->
-      <tr>
-        <td>9:00</td>
-        <td>Lengua</td>
-        <td>Sociales</td>
-        <td>Edu.Fisica</td>
-        <td>Lengua</td>
-        <td>Lengua</td>
-      </tr>
-      <tr>
-        <td>9:45</td>
-        <td>Naturales</td>
-        <td>Lengua</td>
-        <!-- Atributo rowspan para ocupar 2 filas -->
-        <td rowspan="2">Lengua</td>
-        <td>Sociales</td>
-        <td>Naturales</td>
-      </tr>
-      <tr>
-        <td>10:30</td>
-        <td>Edu.Fisica</td>
-        <td>Ingles</td>
-        <td>Alternativa</td>
-        <td>Matematicas</td>
-      </tr>
-      <tr>
-        <td>11:15</td>
-        <td>Ingles</td>
-        <td>Plasticas</td>
-        <td>Naturales</td>
-        <td>Ingles</td>
-        <td>Ingles</td>
-      </tr>
-      <tr>
-        <td>12:00</td>
-        <!-- Atributo colspan para ocupar mas 5 columnas -->
-        <td colspan="5">Recreo</td>
-      </tr>
-      <tr>
-        <td>12:30</td>
-        <td rowspan="2">Ingles</td>
-        <td>Matematicas</td>
-        <td>Matematicas</td>
-        <td>Matematicas</td>
-        <td rowspan="2">Matematicas</td>
-      </tr>
-      <tr>
-        <td>13:15</td>
-        <td>Biblio</td>
-        <td>Musica</td>
-        <td>Tecnologia</td>
-
-      </tr>
-    </tbody>
-    <!-- Pie de tabla -->
-    <tfoot>
-      <tr>
-        <td colspan="5">Total de asignaturas</td>
-        <td>10</td>
-      </tr>
-    </tfoot>
+  <!-- Cuerpo de la tabla -->
+  <tbody>
+    <!-- Fila y celdas regulares -->
+    <tr>
+      <td>9:00</td>
+      <td>Lengua</td>
+      <td>Sociales</td>
+      <td>Edu.Fisica</td>
+      <td>Lengua</td>
+      <td>Lengua</td>
+    </tr>
+    <tr>
+      <td>9:45</td>
+      <td>Naturales</td>
+      <td>Lengua</td>
+      <!-- Atributo rowspan para ocupar 2 filas -->
+      <td rowspan="2">Lengua</td>
+      <td>Sociales</td>
+      <td>Naturales</td>
+    </tr>
+    <tr>
+      <td>10:30</td>
+      <td>Edu.Fisica</td>
+      <td>Ingles</td>
+      <td>Alternativa</td>
+      <td>Matematicas</td>
+    </tr>
+    <tr>
+      <td>11:15</td>
+      <td>Ingles</td>
+      <td>Plasticas</td>
+      <td>Naturales</td>
+      <td>Ingles</td>
+      <td>Ingles</td>
+    </tr>
+    <tr>
+      <td>12:00</td>
+      <!-- Atributo colspan para ocupar mas 5 columnas -->
+      <td colspan="5">Recreo</td>
+    </tr>
+    <tr>
+      <td>12:30</td>
+      <td rowspan="2">Ingles</td>
+      <td>Matematicas</td>
+      <td>Matematicas</td>
+      <td>Matematicas</td>
+      <td rowspan="2">Matematicas</td>
+    </tr>
+    <tr>
+      <td>13:15</td>
+      <td>Biblio</td>
+      <td>Musica</td>
+      <td>Tecnologia</td>
+    </tr>
+  </tbody>
+  <!-- Pie de tabla -->
+  <tfoot>
+    <tr>
+      <td colspan="5">Total de asignaturas</td>
+      <td>10</td>
+    </tr>
+  </tfoot>
   <!-- Fin de la tabla -->
-  </table>
- ```
+</table>
+```
+
 # 14. Etiquetas IMPORTANTES de bloque
-* Address => Se utiliza para dar información de contacto para el body o el article mas cercano
+
+- Address => Se utiliza para dar información de contacto para el body o el article mas cercano
   ```html
   <address>
     <!-- Semanticamente seria mejor -->
-    Tony Stark <br>
-    Malibu <br>
-    90265 <br>
+    Tony Stark <br />
+    Malibu <br />
+    90265 <br />
     California
   </address>
   ```
-* blockcuote => Se utiliza para amrcar la citas a otros autores o documentos
-  * Recibe el atributo "cite" para poner el enlace al documento original (OPCIONAL) **solo sirve para que el navegador sepa de donde viene**, no lo convertira en un enlace
-  * Existe una alternativa de etiqueta en linea pero por el momento esta es de bloque 
+- blockcuote => Se utiliza para amrcar la citas a otros autores o documentos
+  - Recibe el atributo "cite" para poner el enlace al documento original (OPCIONAL) **solo sirve para que el navegador sepa de donde viene**, no lo convertira en un enlace
+  - Existe una alternativa de etiqueta en linea pero por el momento esta es de bloque
   ```html
-    <blockquote cite="https://lamenteesmaravillosa.com/25-frases-del-maravilloso-mario-benedetti/">
-    <p>“No te rindas, por favor no cedas, aunque el frío queme, aunque el miedo muerda, aunque el sol se esconda, y se calle el viento, aún hay fuego en tu alma, aún hay vida en tus sueños. Porque la vida es tuya y tuyo también el deseo, porque cada día es un comienzo nuevo, porque esta es la hora y el mejor momento, porque no estás solo, ¡porque yo te quiero!”</p>
-    </blockquote>
+  <blockquote
+    cite="https://lamenteesmaravillosa.com/25-frases-del-maravilloso-mario-benedetti/"
+  >
+    <p>
+      “No te rindas, por favor no cedas, aunque el frío queme, aunque el miedo
+      muerda, aunque el sol se esconda, y se calle el viento, aún hay fuego en
+      tu alma, aún hay vida en tus sueños. Porque la vida es tuya y tuyo también
+      el deseo, porque cada día es un comienzo nuevo, porque esta es la hora y
+      el mejor momento, porque no estás solo, ¡porque yo te quiero!”
+    </p>
+  </blockquote>
   ```
-* pre => Se utiliza para tener el codigo preformateado, representado igual como se escribio en el codigo
+- pre => Se utiliza para tener el codigo preformateado, representado igual como se escribio en el codigo
 
 ```html
 <!-- Se mostrara tal cual -->
@@ -587,18 +620,377 @@ PD: Hay que tener muy en cuenta como agrandamos las celdas, porque de hacerlo ma
   igual de como se escribe en el
   HTML
 </pre>
-
 ```
-* div => Es simplemente una división del documento, no significa nada, es un contenedor generico, y se usa principalmente para dar estilos (Lo ideal es que dentro del div el contenido este relacionado)
 
-* hr => Le dice al navegador que vamos a cambiar de tema (De lo que estamos hablando)
+- div => Es simplemente una división del documento, no significa nada, es un contenedor generico, y se usa principalmente para dar estilos (Lo ideal es que dentro del div el contenido este relacionado)
+
+- hr => Le dice al navegador que vamos a cambiar de tema (De lo que estamos hablando)
 
 # 15. Etiquetas IMPORTANTES de linea
-* span => Es un contenedor de linea, equivalente a div, se suele usar para encerrar palabras o pequeños textos y darles estilos, semanticamente no significa nada 
-* q => Es el equivalente a "blockquote" pero de linea, marca citas de otros documentos
-* code => Encierra codigo que queremos se represente visualmente como en el HTML, se suele usar junto a la etiqueta **"pre"**
-  * Es como decirle al navegador que lo que pusimos es codigo
+
+- span => Es un contenedor de linea, equivalente a div, se suele usar para encerrar palabras o pequeños textos y darles estilos, semanticamente no significa nada
+- q => Es el equivalente a "blockquote" pero de linea, marca citas de otros documentos
+- code => Encierra codigo que queremos se represente visualmente como en el HTML, se suele usar junto a la etiqueta **"pre"**
+  - Es como decirle al navegador que lo que pusimos es codigo
 
 **CODIGO ASCII:** Se usa para hacer caracteres especiales
 
-# 16. Introducción a Formularios
+# 16. Formularios
+
+Los formularios nos permiten interactuar con el usuario (Con estos ya no enviamos información, sino que solicitamos información).
+
+## Estructura basica de un formulario
+
+Su estructura basica se compone de 4 ELEMENTOS:
+
+- form => Es la etiqueta que engloba TODO nuestro formulario.
+
+- label => Sirve para escribir el nombre del campo a rellenar
+
+- input => Sirve para crear un campo que le permita interactuar al usuario
+
+- button => Crea un botón que permitira enviar el formulario
+
+```html
+<!-- El atributo action es para indicar a donde se va a enviar esa información (Nosotros podemos enviarla desde JS pero eso es otro tema) -->
+<form action="documento de server">
+  <label>Nombre del form</label>
+  <input />
+  <!-- Cuando se le da al botón por defecto se reinicia, porque el comportamiento por defecto es recargar la pagina -->
+  <button>Enviar form</button>
+</form>
+```
+
+## Asociar input y label
+
+Para asociar un input a un label lo hacemos con el atributo "for" en el "label", y recibe como valor el "id" del input al cual se asociara.
+
+- "for" va en el label, y recibe el id de un input (Para asociarlos)
+
+```html
+<!-- Asociando con el atributo "for" -->
+<label for="buscar">buscar</label>
+<input type="text" id="buscar" />
+```
+
+La otra forma de asociarlos es colocar el elemento INPUT DENTRO del elemento LABEL (Esta formma es muy poco utilizada, porque dificulta un poco el dar estilos), pero es completamente valido.
+
+```html
+<!-- Asociando con un elemento dentro de otro (Casi no se usa) -->
+<label>
+  Buscar
+  <input type="text" />
+</label>
+```
+
+# 17.Tipos de input (type)
+
+## Button vs typeButtom
+
+- Button => Es con la etiqueta button y funciona como un botón
+- typeButton => Es un elemento input de tipo botón, para colocar el valor del nombre se usa el atributo "value"
+
+```html
+<!-- button -->
+<button>Enviar</button>
+
+<!-- typeButton -->
+<input type="button" value="Enviar" />
+```
+
+Visualmente estos 2 son IGUALES, sin embargo si hay una diferencia muy grande
+
+- Un "input:typeButton" NO ENVIA el formulario y tampoco recarga la pagina (Sirve para cuando le queremos configurar algún tipo de comportamiento desde JavaScript)
+
+- Un "button" SI ENVIA el formulario y tambien recarga la pagina
+
+Si queremos un INPUT que ENVIE el formulario y recargue la pagina usamos el "typeSubmit" El cual SI SIRVE para enviar el formulario
+
+```html
+<!-- Es un input que SI envia el formulario -->
+<input type="submit" value="Enviar" />
+```
+
+## Inputs para FECHAS
+
+- Date => Muestra un campo para introducir DIA/MES/AÑO (Funciona bien en todos los navegadores)
+
+- DateTime => Esta OBSOLETO y ya no se usa
+
+- DateTime-local => Muestra un campo para introducir FECHA y HORA (OJO: No es compatible con todos los navegadores - Si lo necesitamos y no nos funciona, usamos un "dateTime-local y un time")
+
+- time => Muestra un campo para introducir HORA
+
+- month => Muestra un campo para introducir MES (No funciona en TODOS)
+
+- week => Muestra un campo para introducir SEMANA (No funciona en TODOS)
+
+```html
+<input type="date" />
+<input type="datetime" />
+<input type="datetime-local" />
+<input type="time" />
+<input type="month" />
+<input type="week" />
+```
+
+## Inputs para MOVILES
+
+Los mismos inputs que utilizamos en PC, se pueden ver MUY diferentes en el MOVIL debido a los teclados y eso
+
+- search => form de busqueda (En el movil el teclado tiene LUPA)
+
+- tel => Se utiliza para introducir números telefónicos (En el movil el teclado es NUMERICO)
+
+- email => Se utiliza para introducir un E-Mail (En el movil el teclado facilita un "@")
+
+- Password => form de contraseña (En el movil el teclado sugiere las contraseñas ya guardadas [En el PC tambien])
+
+- URL => form de Enlaces (En el movil el teclado sugiere ENLACES)
+
+En la PC todos se ven practicamente iguales, pero en el movil hay cambios en el teclado y otras cosas
+
+por eso es SUPER IMPORTANTE que SIEMPRE usemos el INPUT CORRECTO en función del tipo de información que estamos pidiendo.
+
+```html
+<input type="search" />
+<input type="tel" />
+<input type="email" />
+<input type="password" />
+<input type="url" />
+```
+
+## COMO VER NUESTRA PAGINA EN CELULAR (ABRIR SERVIDOR DE DESARROLLO EN EL MOVIL)
+
+1. Nos vamos a CMD y escribimos "ipconfig"
+2. Nos aparecera nuestra información de RED
+3. La dirección IPv4 es nuestra IP y equivaldra a el "LOCALHOST"
+4. Nos vamos al CELULAR y colocamos la IP que averiguamos, seguido de dos puntos y EL PUERTO de nuestro SERVIDOR DE DESARROLLO
+   - EJEMPLO => "192.168.0.1:5500/index.html"
+5. Con esto podremos ACCEDER A NUESTRO SERVIDOR DE DESARROLLO DESDE EL CELULAR.
+
+## Inputs EXTRA
+
+Como existen mucha cantidad de inputs, tambien tenemos algunos que no perteneces a ninguna categoria en concreto como estos:
+
+- color => Muestra una paleta de color para elegir alguno
+- number => Espacio para colocar valores numericos
+- range => Barra deslizable con rangos
+  - tiene atributos como ("STEP"[de cuanto en cuanto se mueve la barra], "MIN"[valor minimo], "MAX"[valor maximo])
+- reset => Botón que reestablece toda la pagina y los formularios
+- hidden => Es un input que esta escondido y (puede cambiar su valor)
+- text => Valor por defecto de los input
+
+```html
+<!-- Muestra una paleta de color para elegir alguno -->
+<input type="color" />
+<!-- Espacio para colocar valores numericos -->
+<input type="number" />
+<!--  Barra deslizable con rango
+  * Tiene atributos como step(De cuanto en cuanto se desliza), min y max -->
+<input type="range" />
+<!-- Botón que reestablece toda la pagina y los formularios -->
+<input type="reset" />
+<!-- Es un input que esta escondido y (puede cambiar su valor) -->
+<input type="hidden" />
+<!-- Valor por defecto de los inputs -->
+<input type="text" />
+```
+
+## Input Radio
+
+Permite seleccionar una UNICA opción de una lista relacionada
+
+ATRIBUTOS:
+
+- name (OBLIGATORIO) => Sirve para asociar los inputs que pertenecen a una misma categoria y asi solo nos deje escoger una opción (Todos los input radio de una categoria deben tener EL MISMO name)
+
+- value (OBLIGATORIO) => Sirve para declarar un valor al elemento que se va a seleccionar, ese valor sera el que enviara el formulario.
+
+- checked (OPCIONAL) => Sirve para marcar una opción por defecto (ES BOOLEAN)
+
+```html
+<h2>Genero</h2>
+
+<form>
+  <label
+    >Masculino
+    <input type="radio" name="gender" value="masculino" checked />
+  </label>
+  <label
+    >Femenino
+    <input type="radio" name="gender" value="femenino" />
+  </label>
+  <label
+    >Otro
+    <input type="radio" name="gender" value="otro" />
+  </label>
+</form>
+```
+
+## Input CheckBox
+
+Nos permite seleccionar VARIAS opciones de una lista de opciones relacionadas, no tiene mucha diferencia con el anterior, solo que se puede seleccionar VARIOS, por lo que el atributo "checked" tambien lo pueden tener varios.
+
+```html
+<h2>Lenguajes que conoces</h2>
+
+<form>
+  <label
+    >HTML
+    <input type="checkbox" name="lenguajes" value="HTML" checked />
+  </label>
+  <label
+    >CSS
+    <input type="checkbox" name="lenguajes" value="CSS" checked />
+  </label>
+  <label
+    >JavaScript
+    <input type="checkbox" name="lenguajes" value="JS" />
+  </label>
+</form>
+```
+
+## Elemento Select BASICO
+
+NO ES UN INPUT, es una etiqueta aparte que nos permite trabajar con 1 o varias opciones, como una mezcla entre "input:radio" y "input:checkbox"
+
+Es una especie de lista desplegable para elegir, es una etiqueta "select" y cada opción va con la etiqueta "option"
+
+- Si queremos que solo se pueda elegir 1 VALOR
+  ```html
+  <!-- Tambien tiene los atributos name,value (OBLIGATORIOS) -->
+  <select name="Lenguajes" id="">
+    <option value="HTML">HTML</option>
+    <option value="CSS">CSS</option>
+    <option value="JS">JavaScript</option>
+  </select>
+  ```
+- Si queremos que se pueda elegir mas de un valor solamente usamos el atributo "multiple" en el select
+  ```html
+  <select name="Lenguajes" id="" multiple></select>
+  ```
+
+## Elemento Select AVANZADO
+
+Se utiliza principalmente para cuando tenemos MUCHAS OPCIONES, lo que nos permite es agrupar las opciones por CATEGORIAS
+
+- Para esto utilizamos la etiqueta "optgroup" que como su nombre lo indica es para hacer grupos de opciones y con un atributo "label" nombrariamos la categoria
+
+```html
+<!-- Sirve para ordenar las opciones por categorias -->
+<select name="mascotas" id="">
+  <optgroup label="4 patas">
+    <option value="perro">perro</option>
+    <option value="gato">gato</option>
+    <option value="conejo">conejo</option>
+  </optgroup>
+
+  <optgroup label="Aves">
+    <option value="loro">loro</option>
+    <option value="canario">canario</option>
+  </optgroup>
+
+  <optgroup label="Otros">
+    <option value="serpiente">serpiente</option>
+    <option value="tarantula">tarantula</option>
+  </optgroup>
+</select>
+```
+
+Se puede ver mucho mas ordenado, para facilitarle el trabajo al usuario
+
+## DataList
+
+Son MUY similares a los SELECT, solo que incluyen un filtro, para que se pueda buscar de una forma mas sencilla
+
+Sirve para los casos donde queramos hacer un select, con posibilidad de busqueda al usuario
+
+```html
+<!-- El input es para que podamos filtrarlo -->
+<input type="list" list="pets" />
+
+<!-- El "id" debe asociarse con el input por medio del atributo "list" -->
+<datalist id="pets">
+  <!-- En Datalist aparece el texto y el value, entonces para que no se repita, podriamos omitir el texto que le colocamos comunmente (Porque el value no se puede eliminar)-->
+  <option value="perro"></option>
+  <option value="gato"></option>
+  <option value="conejo"></option>
+  <option value="loro"></option>
+  <option value="canario"></option>
+  <option value="serpiente"></option>
+  <option value="tarantula"></option>
+</datalist>
+```
+
+## Mas elementos para formularios
+
+- fieldset => Se utiliza para agrupar elementos dentro de un formulario (Lo encierra en una caja)
+
+- legend => Se utiliza para dar un nombre a esa caja de agrupación
+
+- file => es un INPUT que se utiliza para cargar archivos y enviarlos desde un formulario (Sin CSS y sin JS es muy poco vistoso y funcional)
+
+- meter => Representa un valor dentro de un rango conocido
+
+- progress => Representa el progreso de una tarea
+
+- textarea => Se utiliza para introducir texto de un formulario en forma de cajita
+
+```html
+<!-- fieldset => sirve para agrupar formularios -->
+<fieldset>
+  <!-- legend => Para colocarle nombre al grupo -->
+  <legend>Datos Personales</legend>
+  <label for="name">Nomber</label>
+  <input type="text" id="name" />
+  <label for="surname">Apellido</label>
+  <input type="text" id="surname" />
+</fieldset>
+
+<!-- input:file sirve para cargar un documento que queramos enviar (Hace falta JS y CSS)-->
+<input type="file" />
+
+<!-- meter (Es muy poco usado) -  como una barra de gasolina, no es muy util aparentemente -->
+<meter
+  id="fuel"
+  min="0"
+  max="100"
+  value="30"
+  low="30"
+  high="75"
+  optimum="50"
+></meter>
+
+<!-- progress(Tambien es muy poco usado) como el progreso de una tarea -->
+<progress id="task" max="100" value="45"></progress>
+
+<!-- textArea(Es como un campo de mensaje - Si es UTIL) -->
+<textarea name="" id="" cols="30" rows="10"></textarea>
+```
+
+## Atributos para formularios
+
+- placeholder => Da una pista de lo que el usuario tiene que introducir (EJ: ¿Que estas buscando?)
+
+- required => Establece un campo como OBLIGATORIO
+
+- readonly => Establece un campo como SOLO de LECTURA (NO se puede editar)
+
+- min/max => Establece el minimo y maximo de un campo numerico
+
+- maxlength/minlength => Establece el minimo y maximo de caracteres en un campo de texto
+
+- selected => Equivale a checked en los select. Establece una opción por defecto
+
+- disabled => Desactiva el campo, no deja ni siquiera seleccionarlo y si el form se envia NO SE ENVIARA
+
+- autofocus => Poner el "foco" al cargar el formulario
+
+## Envio GET vs POST (NO ENTIENDO MUY BIEN)
+
+- get => Es el metodo que se ejecuta cuando entramos a la pagina atraves de la URL. Es decir parece que entra al archivo de especificado en "action"
+
+- post => Es el metodo para enviar la información del formulario, NO POR URL sino por "ATRAS", es decir se enviara sin notarse en la URL
+
+PD: Los formularios SIEMPRE deben tener el atributo NAME
