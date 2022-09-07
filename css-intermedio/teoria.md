@@ -20,8 +20,8 @@
  16. Flexbox
  17. Grid
  18. Transformaciones
- 19. Transiciones (PRONTO)
- 20. Animaciones (PRONTO)
+ 19. Transiciones
+ 20. Animaciones
  21. Clon de Youtube (PRONTO)
 
 # 2-1 ¿Que es una metodologia en CSS?
@@ -1087,3 +1087,207 @@ Libros recomendados
 
 - Responsive web design. Ethan marcotte
 - Respons
+
+# 5-1 Propiedad Background
+La propiedad background sirve para establecer el contenido y/o comportamiento del fondo de un contenedor.
+
+El fondo de un elemento es el tamaño total del mismo sin incluir el margen. Es decir, el contenido, el padding y el borde.
+
+# 5-2 Background color
+Esta propiedad aplica colores sólidos al fondo de un elemento. Admite cualquer código válido en CSS (rgb,hsl,hexadecimal,keywords)
+
+**NOTA:** Cuando le colocamos **'background-color'** al body, se nos pinta TODA la pagina, esto no significa que el body ocupe todo eso, el body puede ocupar mucho menos PERO el CSS interpreta que si le colocamos un **'background-color'** es por que queremos toda la pagina tenga ese color
+
+# 5-3 Background image y background-repeat
+
+## Background image
+Esta propiedad sirve para establecer imagenes o degradados al fondo de un elemento. (Nos centraremos acá SOLO en imagenes)
+
+NO es incompatible con **'background-color'**, PERO hay que tener en cuenta que la imagen o el degradado SIEMPRE se colocará por encima del color del fondo.
+
+Para usar una imagen usamos la función **'url()'** y dentro pondremos la ruta donde tenemos nuestra imagen. Podemos utilizar cualquier formato de imagen valido en HTML (jpg, png, webp...)
+
+```css
+.box{
+    /* La imagen se sobrepondra SIEMPRE al background-color */
+    background-image: url(/dorian.png);
+    background-color: lightsalmon;
+}
+```
+
+**NOTA: Cuando la imagen tiene transparencia y el contenedor es muy pequeño, puede que agarremos una parte transparente y pensemos que la imagen no se nos esta viendo, toca ASEGURARNOS bien cambiando el tamaño del contenedor**
+
+### Cuando usar img y cuando background-image
+Si la imagen es de adorno y solo esta ahí para verse bonita utilizamos **background-image** si de lo contrario la imagen cuenta algo y es importante para el contexto, usamos **img**
+
+## Background repeat
+Esta propiedad controla si la imagen se repetira para rellenar todo el fondo del contenedor. Los valores que admite esta propiedad son:
+
+- **repeat**: (Valor por defecto) se repite la imagen si es necesario para llenar el contenedor 
+- **repeat-x**: Repite la imagen horizontalmente
+- **repeat-y**: Repite la imagen verticalmente
+- **no-repeat**: No repite la imagen
+
+# 5-4 Background-position
+Esta propiedad nos permite mover una imagen de fondo dentro de su contenedor, por defecto sus valores son 0 0, que corresponden a la esquina superior izquierda, el primer valor corresponde al eje X y el segundo al eje Y.
+
+Para mover la imagen podemos usar cualquier medida válida en CSS (Lo mas habitual es utilizar px o %), pero si usamos porcentajes hay algo a tener en cuenta, si ponemos `background-position:100% 0` la imagen se colocará a la derecha, alineará el ultimo pixel de la imagen con el ultimo del contenedor.
+
+Tambien tenemos palabras clave que hacen más facil el control de la posición.
+
+- top: equivale al 0% verticalmente.
+- right: equivale al 100% horizontalmente.
+- bottom: equivale al 100% verticalmente.
+- left: equivale al 0% horizontalmente.
+- center: equivale a 50% tanto horizontal como verticalmente.
+
+Al colocar palabras clave da igual el orden, es lo mismo poner `top center` que `center top`. ESTO es algo que SOLO funciona si utilizamos palabras clave, al usar valores numericos hay que respetar el orden.
+
+Si colocamos un solo valor en vez de 2, ese valor NO aplicara para cada eje, el eje X tendra el valor que le asignamos y el eje Y tendra el valor `center`. Esto pasa tanto con palabras clave como con valores numericos.
+
+**NOTA: NO es buena idea mezclar valores numericos con palabras clave**
+
+Tambien es completamente posible colocar valores NEGATIVOS, y asi la imagen se saliera del contenedor no genera SCROLL debido a que no ocupa un espacio.
+
+# 5-5 Background-size
+
+Esta propiedad nos permite controlar el tamaño de la imagen de fondo, por defecto su valor `auto` y deja que el navegador calcule las medidas en función del tamaño real de la imagen y la relación de aspecto para no deformar la imagen.
+
+Si queremos establecer la medida manualmente tenemos varias formas de hacerlo.
+
+- **Un valor**: Se aplicara al ancho de la imagen (SIN DEFORMARSE)
+- **Dos valores**: El primero sera el ancho y el segundo el alto de la imagen (Se puede deformar)
+- **Palabras clave**: 
+    - cover: Con este valor la imagen cubrira el contenedor completo sin deformarse, PERO cortando la imagen si fuera necesario.
+
+    - contain: Con este valor la imagen se agrandará todo lo posible hasta que el ancho o alto sea de las mismas medidas que la del contenedor.
+
+# 5-6 Background attachment
+Esta propiedad especifica como se comporta el fondo cuando hagamos scroll, hay 3 valores que podemos utilizar:
+
+- **Scroll:** Es el valor por defecto.
+
+- **Fixed:** Hace que el fondo quede fijado al viewport, por lo que aunque hagamos scroll el fondo no se movera. (Si utilizamos este valor, la imagen se posicionara respecto al viewport y NO al contenedor, esto pasara tanto con `background-position` como con `background-size`)
+
+- **Local:** Si tenemos contenido con scroll en un contenedor hará que la imagen de fondo se mueva junto con el scroll. (Si la imagen es muy grande y tenemos scroll a medida que hacemos scroll la imagen se descubrira)
+
+# 5-7 Efecto parallax
+Es un efecto puramente decorativo que se ve muy bonito, se ve muy parecido a las paginas de producto de dji o similar
+```css
+/* Podemos tener las cajas que queramos, las cajas van a tener imagenes */
+.box{
+    min-height: 100vh;
+    /* este padding es para evitar el colapsado de margenes */
+    padding: 1px;
+    /** Con es attachment conseguimos el efecto parallax que consta en que las imagenes parecieran estaticas mientras otra se mueve, la verdad se ve muy bonito */
+    background-attachment: fixed;
+}
+
+/* Caja de texto dentro de las cajas grandes */
+.box-texts{
+    margin-top: 40vh;
+    background-color: rgb(0 0 0/ 0.4);
+    color: aliceblue;
+    padding: 1em 2em;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.box-1{
+    /* Escogemos las imagenes de cada una de las cajas */
+    background-image: url();
+}
+
+.box-2{
+    /* Escogemos las imagenes de cada una de las cajas */
+    background-image: url();
+}
+
+.box-3{
+    /* Escogemos las imagenes de cada una de las cajas */
+    background-image: url();
+}
+```
+# 5-8 Background origin y background clip
+
+## Background origin
+Esta propiedad define en que zona del box-model se empieza a pintar el fondo.
+
+**Esta propiedad sólo funciona cuando usamos background-image**
+
+Tenemos 3 valores posibles.
+
+- **border-box:** El fondo empieza a pintar desde la esquina izquierda superior del contenedor.
+    - La imagen empieza desde el borde
+
+- **padding-box:** *Valor por defecto*. El fondo se empieza a pintar desde la esquina superior izquierda de la zona que corresponga al padding.
+    - Es el valor normal, ignora el borde
+
+- **content-box:** El fondo se empieza a pintar desde la esquina superior izquierda de la zona que corresponda al contenido 
+    - Ignora el padding y se dibuja despues de este
+
+## Background clip
+Esta propiedad define en que zona del box-model se pinta el fondo. Tenemos 3 valores posibles.
+
+- border-box: *Valor por defecto*. rellenará todo el box-model.
+
+- padding-box: Rellanará desde el contenido hasta el padding.
+
+- content-box: Rellenará sólo la parte que corresponda al contenido
+
+Estas 2 propiedades no se suelen utilizar mucho, pero esta bueno saberlas por si acaso
+
+# 5-9 Background multiples
+Como trabajar con multiples backgrounds.
+
+1. Si queremos poner mas backgrounds los tenemos separar por `,`
+
+2. El orden de dibujado es muy importante, la que este mas arribe SIEMPRE sera la PRIMERA que pongamos
+
+```css
+.ejemplo{
+    /* Podemos colocar las imagenes que queramos separadas por `,`  */
+    background-image: url(primera),url(segunda),url(tercera);
+
+
+    /* Para dar propiedades es el mismo principio */
+    /* Primera, segunda, etc... */
+    background-size: 50%,25%;
+    background-position: bottom right,bottom left;
+}
+```
+# 5-10 Background Shorthand
+Si utilizamos la propiedad background podemos asignar multiples propiedades en una sola linea.
+
+Estas son todas las que podemos declarar
+
+`background: image position/size repeat attachment origin clip color;`
+
+NO es necesario declarar todos los valores en la declaración, pero hay que recordar cuales son los valores por defecto de las propiedades que no declaremos:
+
+- `background-image: none;`
+- `background-position: 0 0;`
+- `background-size: auto;`
+- `background-repeat: repeat;`
+- `background-attachment: scroll;`
+- `background-origin: padding-box;`
+- `background-clip: border-box;`
+- `background-color: trasparent;`
+
+Todas las que no pongamos tendran su valor por defecto
+
+El orden de las propiedades por norma general no importa, PERO hay 3 normas que no nos podemos saltar:
+
+- `background-origin` y `background-clip` deben declararse en el orden correcto. Esto se debe a que pueden compartir un mismo valor, si sólo ponemos un valor se aplicará a las 2 propiedades, si ponemos 2 valores, el PRIMERO será para `background-origin` y el SEGUNDO para `background-clip`
+
+- `background-size` se debe declarar inmediatamente después de `background-position` y ambas propiedades deben estar separados por una barra `/`.
+
+- Si se utiliza el shorthand para declarar multiples background solo el ultimo podra tener la propiedad `background-color`
+
+**EJEMPLO FINAL**
+```css
+/* bottom right (position) y contain(size) DEBEN ir juntas */
+    background: no-repeat url(imagen.jpg) bottom right / contain lightblue;
+```
+**NOTA: Personalmente a mi me gustan mas declararlas por SEPARADO**
