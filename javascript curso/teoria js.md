@@ -885,11 +885,12 @@ restParams(1,2,3,54,5,6,77,1);
     // Si quisieramos que esto fuera un array, lo hariamos con SPREAD OPERATOR.
     console.log([...new Set(numbers)]);
 ```
+
 # 23. Que es y para que sirve el DOM
 
 **DOM (Document Object Model) - (Modelo de Objetos del documento)**
 
-Es toda la estructura HTML del documento. 
+Es toda la estructura HTML del documento.
 
 NO es JavaScript, es una API (Aplication Programing Interface) que se utiliza a traves de JavaScript. Es fundamental conocerla porque el 99% que utilizamos JS es para interactuar con el DOM.
 
@@ -899,61 +900,65 @@ Cada parte del documento es un Objeto al que se le conoce como NODO.
 
 Hay varios tipos de nodos (12), los más utilizados son:
 
-- **Element Node** (1) (Cualquier etiqueta HTML)
-- **Text Node** (3) (El contenido de la etiqueta)
-- **Comment Node** (8) (Cualquier comentario HTML)
+-   **Element Node** (1) (Cualquier etiqueta HTML)
+-   **Text Node** (3) (El contenido de la etiqueta)
+-   **Comment Node** (8) (Cualquier comentario HTML)
 
 El numero al lado del nombre es el numero que devuelve el nodo, cuando estamos averiguando que nodo es.
 
 ## Conectando con HTML
+
 Para conectar script con HTML se hace con la etiqueta script
 
-- Se puede abrir la etiqueta y escribir codigo ahí mismo PERO no es nada recomendable (Salvo en casos donde no haya otra alternativa).
+-   Se puede abrir la etiqueta y escribir codigo ahí mismo PERO no es nada recomendable (Salvo en casos donde no haya otra alternativa).
 
-- El script siempre debe ir al final justo antes de la etiqueta del cierre del body, para que cuando carguen los scripts ya esten el resto de recursos cargados.
+-   El script siempre debe ir al final justo antes de la etiqueta del cierre del body, para que cuando carguen los scripts ya esten el resto de recursos cargados.
+
 ```html
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DOM</title>
-</head>
-<body>
-    <h1 id="title" class="title">DOM Document Object Model</h1>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DOM</title>
+    </head>
+    <body>
+        <h1 id="title" class="title">DOM Document Object Model</h1>
 
-<!-- La etiqueta se coloca siempre al final, justo antes de la etiqueta del cierre del body -->
-<script src="script.js"></script>
+        <!-- La etiqueta se coloca siempre al final, justo antes de la etiqueta del cierre del body -->
+        <script src="script.js"></script>
 
-<!-- El atributo "type" ya NO es necesario, aunque si lo vemos es para escribir JS en el mismo html -->
-<script type="text/javascript">
-// NO es recomendable escribir JS en el mismo documento
-</script>
-</body>
+        <!-- El atributo "type" ya NO es necesario, aunque si lo vemos es para escribir JS en el mismo html -->
+        <script type="text/javascript">
+            // NO es recomendable escribir JS en el mismo documento
+        </script>
+    </body>
 </html>
 ```
+
 ## Interactuando con DOM
- - Cuando intentemos acceder a una etiqueta a traves del DOM son KeySensitive y SIEMPRE van en mayus. las etiquetas.
+
+-   Cuando intentemos acceder a una etiqueta a traves del DOM son KeySensitive y SIEMPRE van en mayus. las etiquetas.
 
 Comandos Basicos que se pueden hacer en la consola del navegador.
 
 1. Se selecciona el elemento del HTML que queremos averiguar.
-2. Con todas las sentencias se usa "$0" **(EJ: $0 nodeType)** *solo sirve en la consola de los navegadores* y se utiliza para acceder al elemento como si fuera un objeto.
+2. Con todas las sentencias se usa "$0" **(EJ: $0 nodeType)** _solo sirve en la consola de los navegadores_ y se utiliza para acceder al elemento como si fuera un objeto.
 
-- **$0 :** Asi solo. Despliega toda la información que tiene ese NODO (Objeto).
+-   `$0 :` Asi solo. Despliega toda la información que tiene ese NODO (Objeto).
 
-- **$0.id:** Nos devuelve el ID del elemento HTML
+-   `$0.id:` Nos devuelve el ID del elemento HTML
 
-- **$0.textContent:** Nos devuelve el contenido de la etiqueta
+-   `$0.textContent:` Nos devuelve el contenido de la etiqueta
 
-- **$0.nodeType:** Nos devuelve el numero del tipo del NODO (Si es un nodo de **elemento** nos devolvera 1)
+-   `$0.nodeType:` Nos devuelve el numero del tipo del NODO (Si es un nodo de **elemento** nos devolvera 1)
 
-- **$0.nodeName:** Nos devuelve el nombre de la etiqueta, con los nodos las etiquetas son **KeySensitive** y si queremos acceder a un nodo a traves de la etiqueta esta DEBE ir en MAYUSCULA (EJ: H1,P,IMG ...) *En el DOM las etiquetas siempre con MAYUSCULA*
+-   `$0.nodeName:` Nos devuelve el nombre de la etiqueta, con los nodos las etiquetas son **KeySensitive** y si queremos acceder a un nodo a traves de la etiqueta esta DEBE ir en MAYUSCULA (EJ: H1,P,IMG ...) _En el DOM las etiquetas siempre con MAYUSCULA_
 
 Para acceder a un nodo del texto (el contenido de un nodo de elemento) se hace de esta forma:
 
--**$0.childNodes[0].nodeType:** Aca estamos accediendo a un nodo de tipo texto
+-`$0.childNodes[0].nodeType:` Aca estamos accediendo a un nodo de tipo texto
 
 **NOTA: Los Nodos tienen muchisimas propiedades que vamos a ir viendo poco a poco**
 
@@ -961,29 +966,31 @@ Para acceder a un nodo del texto (el contenido de un nodo de elemento) se hace d
 
 Los elementos SIEMPRE se guardan en una constante porque el elemento no va a cambiar.
 
-- Los ID se usan para JavaScript y las clases para CSS.
+-   Los ID se usan para JavaScript y las clases para CSS.
 
 ```js
 // Acceder a un elemento a traves de su ID
-document.getElementById('id');
+document.getElementById("id");
 
 // Accede al PRIMER elemento que coincida con el selector CSS (document | element). Nos devuelve solo el primero
-document.querySelector('selectorCSS');
+document.querySelector("selectorCSS");
 
 // Accede a TODOS los elementos que coincidan con el selector CSS, devuelve un nodeList (document | element)
-element.querySelectorAll('selectorCSS');
+element.querySelectorAll("selectorCSS");
 ```
+
 ## getElementByID
 
 ```js
 // Va en una constante porque el elemento no va a cambiar
 // 2. El parametro va entre comillas porque es un 'string'
-const title = document.getElementById('title');
+const title = document.getElementById("title");
 
 // Si queremos cambiar el texto de algún elemento(Se modifican los valores de forma dinamica)
-title.textContent = 'Cambiamos el texto'
+title.textContent = "Cambiamos el texto";
 ```
-- **textContent:** Nos permite leer el contenido y editarlo.
+
+-   **textContent:** Nos permite leer el contenido y editarlo.
 
 ## querySelector
 
@@ -991,107 +998,116 @@ title.textContent = 'Cambiamos el texto'
 // Cuando usamos un querySelector tenemos que pasar un selector de CSS, en caso de que sea la clase seria con el (.) EJ: .class
 
 // De esta forma seleccionamos EL PRIMERO con esta clase
-const paragraph = document.querySelector('.paragraph');
+const paragraph = document.querySelector(".paragraph");
 
 // No es necesario siempre que sea 'document' podemos referenciarlo en función de donde queramos buscar. Es como ir bajando de padre a hijo
 
 // No usamos el (.) porque hacemos referencia a un selector de elemento.
-const span = paragraph.querySelector('span')
+const span = paragraph.querySelector("span");
 ```
+
 El limitante que tiene 'querySelector' es que en principio no se puede acceder a los PseudoElemento desde JS.
 
 Hay una forma de acceder a los PseudoElementos PERO no es de esta forma.
 
 ## querySelectorAll
+
 Con esta sobrecarga NO agarramos el primer elemento con el selector, sino que agarramos TODOS los elementos con ese selector('clase') y nos devuelve un NodeList.
 
 ```js
 // Agarramos todos los elementos con la clase
-const paragraphs = document.querySelectorAll('.paragraph')
+const paragraphs = document.querySelectorAll(".paragraph");
 
 // Si queremos acceder a un elemento en especifico podemos acceder como un array SIN EMBARGO, un NodeList NO es un Array
-paragraphs[0].style.color = 'red';
+paragraphs[0].style.color = "red";
 
 // El map es para que devuelva cada posición de un array con una modificación
 
 // En este caso nos daria ERROR porque NO es un Array es un NodeList
-paragraphs.map(p=>p.style.color='green')
+paragraphs.map((p) => (p.style.color = "green"));
 ```
-Si necesitamos que el NodeList se vuelva un Array, podemos utilizar el 'Spread operator' o con 'Array.from'
-```js
 
+Si necesitamos que el NodeList se vuelva un Array, podemos utilizar el 'Spread operator' o con 'Array.from'
+
+```js
 // CON SPREAD OPERATOR
 
 // agarramos elemento por elemento y lo pasamos al array que seria paragraphsSpread
-const paragraphsSpread = [...document.querySelectorAll('.paragraph')];
+const paragraphsSpread = [...document.querySelectorAll(".paragraph")];
 
 // Y como es un Array, la función map SI serviria
-paragraphs.map(p=>p.style.color='green')
+paragraphs.map((p) => (p.style.color = "green"));
 
 // El problema con Spread Operator es que NO se soporta 100% en todos los navegadores (EN 2018)
 
 // CON ARRAY.FROM
 
 // Convertimos el nodeList en un Array
-const paragraphsArray = Array.from(document.querySelectorAll('.paragraph'));
+const paragraphsArray = Array.from(document.querySelectorAll(".paragraph"));
 
 // Y como es un Array, la función SI serviria
-paragraphs.map(p=>p.style.color='blue')
-
+paragraphs.map((p) => (p.style.color = "blue"));
 ```
+
 Siempre que trabajemos con QuerySelectorAll, recordemos convertirlo en Array si lo queremos tratar como tal. Que la MAYORIA DE VECES se debe usar como un Array. (Es el uso mas común)
 
 # 25. DOM - Modificar atributos y clases
 
 ## Atributos
-- Si queremos definir un atributo a un elemento utilizamos 'setAttribute'
 
-- Si queremos obtener el valor de un atributo de un elemento utilizamos 'getAttribute'
+-   Si queremos definir un atributo a un elemento utilizamos 'setAttribute'
+
+-   Si queremos obtener el valor de un atributo de un elemento utilizamos 'getAttribute'
 
 ```js
 // Get Attribute
 // Para obtener el valor del atributo de un elemento, como parametro pasamos el atributo que queremos consultar
-console.log(name.getAttributte('type'));
+console.log(name.getAttributte("type"));
 
 // Set Attribute
 // Para modificar o declarar el valor del atributo de un elemento, como parametro pasamos el atributo que queremos modificar y el valor que le vamos a dar.
-name.setAttribute('type','number');
+name.setAttribute("type", "number");
 ```
+
 ## Clases
 
-- Si queremos agregar clases al elemento utilizamos 'classList.add' y podemos añadir todas las que queramos
+-   Si queremos agregar clases al elemento utilizamos 'classList.add' y podemos añadir todas las que queramos
 
-- Si queremos eliminar clases del elemento utilizamos 'classList.remove' y podemos eliminar todas las que queramos
+-   Si queremos eliminar clases del elemento utilizamos 'classList.remove' y podemos eliminar todas las que queramos
 
-- Si queremos saber si tiene la clase o no utilizamos 'classList.contains' que devuelve 'true or false'
+-   Si queremos saber si tiene la clase o no utilizamos 'classList.contains' que devuelve 'true or false'
 
-- Si queremos sustituir una clase por otra, utilizamos 'classList.replace'. Recibe 2 parametros, la clase antigua, y la que la va a sustituir.
+-   Si queremos sustituir una clase por otra, utilizamos 'classList.replace'. Recibe 2 parametros, la clase antigua, y la que la va a sustituir.
 
-- Si queremos que si NO tiene la clase la coloque, y SI la tiene se la quite, utilizamos 'classList.toggle'. ***SE USA MUCHO***
+-   Si queremos que si NO tiene la clase la coloque, y SI la tiene se la quite, utilizamos 'classList.toggle'. **_SE USA MUCHO_**
 
 **EJEMPLOS:**
 
 ```js
 // 'classList.add'
 // Añade clases, recibe como parametro una o mas clases que queramos añadir
-title.classList.add('main-title');
-title.classList.add('second-title','other-title');
+title.classList.add("main-title");
+title.classList.add("second-title", "other-title");
 
 // 'classList.remove'
 // Elimina clases, recibe como parametro una o mas clases que queramos eliminar. (Si colocamos una clase que no tiene no pasa nada)
-title.classList.remove('main-title');
-title.classList.remove('second-title','third-title');
+title.classList.remove("main-title");
+title.classList.remove("second-title", "third-title");
 
 // 'classList.contains'
 // Comprueba si esa clase existe en el elemento (true or false)
-if(title.classList.contains('title'))console.log('Tiene la clase title');
-else console.log('No tiene la clase title');
+if (title.classList.contains("title")) console.log("Tiene la clase title");
+else console.log("No tiene la clase title");
 
 // 'classList.replace'
 // Reemplaza una clase por otra, recibe como parametros la clase antigua y la clase que la va a reemplazar
-title.classList.replace('title','title-new');
+title.classList.replace("title", "title-new");
+
+// ClassList.toggle no lo veremos en esta CLASE
 ```
+
 ## Atributos Directos
+
 Todos los atributos de la etiqueta que tengan un valor simple (Que no sean arrays o nodeList && Que no desplieguen varios elementos) pueden ser llamados de forma **DIRECTA**
 
 A los que mas se suele acceder es al id, innerHtml, value, textContent, entre otros elementos.
@@ -1099,9 +1115,8 @@ A los que mas se suele acceder es al id, innerHtml, value, textContent, entre ot
 **NOTA: El innerText NO es un estandar, se creo para internet explorer y CREO que ya no se usa**
 
 ```js
-const title = document.getElementById('title');
-const name = document.getElementById('name');
-
+const title = document.getElementById("title");
+const name = document.getElementById("name");
 
 // Accedemos directamente al id
 console.log(title.id);
@@ -1118,51 +1133,60 @@ console.log(name.value);
 // Es necesario el value de lo contrario no nos serviria
 console.log(name.value.length);
 ```
+
 # 26. Eventos I - Eventos de ratón y teclado
 
 ## Introducción
 
 Un evento es cualquier cosa que sucede en nuestro documento.(Los eventos no siempre son ejecutados por el usuario)
 
-Hay muchos eventos que se disparan, sin que el usuario tenga que intervenir: 
-- Cuando el contenido se ha leiddo
-- Cuando el contenido se ha cargado (Los recursos y todo)
-- Que el usuario mueva el ratón
-- Que el usuario  pulse una tecla
-- Que la ventana se cierre
-- ETC...
+Hay muchos eventos que se disparan, sin que el usuario tenga que intervenir:
+
+-   Cuando el contenido se ha leido
+-   Cuando el contenido se ha cargado (Los recursos y todo)
+-   Que el usuario mueva el ratón
+-   Que el usuario pulse una tecla
+-   Que la ventana se cierre
+-   ETC...
 
 Todos estos son ejemplos de eventos, y existen muchisimos mas que iremos abarcando
 
 Hace unos años se llamaban los eventos desde HTML de esta forma
+
 ```html
 <p onclick="saludo()">Soy un párrafo</p>
 ```
+
 Esto es algo que a dia de hoy ya no se hace y que no es recomendable hacer por varias razones en especial porque estamos mezclando JS con HTML.
 
 **NOTA: Hay sintaxis muy parecidas que utilizan Frameworks como Angular, en los que en este caso si estaria correcto utilizarla, EJEMPLO**
+
 ```html
 <!-- Sintaxis de Angular, esto si es correcto -->
 <p (click)="saludo()">Soy un párrafo</p>
 ```
+
 Mientras que trabajemos en codigo puro, lo ideal es no mezclar lenguajes.
 
 ## La forma correcta
 
-Para añadir un evento de la forma lo haremos unicamente desde JS y tendra esta sintaxis.
+Para añadir un evento de la forma correcta lo haremos unicamente desde JS y tendra esta sintaxis.
+
 ```js
 // Sintaxis
-Element.addEventListener('event',callback);
+Element.addEventListener("event", callback);
 
 // Ejemplo de click
-loginBtn.addEventListener('click',()=>{
+loginBtn.addEventListener("click", () => {
     //write function
-})
+});
 ```
-**NOTA: Sino conocemos algún evento o nos hace falta averiguar podemos ir a la documentación de mozilla developer**
+
+**NOTA: Si no conocemos algún evento o nos hace falta averiguar podemos ir a la documentación de mozilla developer**
 
 ## Observadores de mutación
-**Resumen rapido:** Trabajan como **React** con el virtual DOM, react lo que hace es construir una copia virtual del DOM. 
+
+**Resumen rapido:** Trabajan como **React** con el virtual DOM, react lo que hace es construir una copia virtual del DOM.
 
 Cuando trabajamos con react interactuamos sobre el virtual DOM. El esta comparando y cuando hay un cambio en el virtual DOM, analiza el DOM y en el punto donde hay el cambio, cambia solo ese fragmento de codigo
 
@@ -1172,38 +1196,47 @@ Volviendo a los **OBSERVADORES DE MUTACIÓN** estos hacen algo parecido, observa
 
 ### Eventos de ratón
 
-- **click:** Cuando pulsamos el botón izquierdo del ratón
+-   **click:** Cuando pulsamos el botón izquierdo del ratón
+
 ```js
 // Creamos un evento click
-button.addEventListener('click',()=>{
-    console.log('pulsamos click');
-})
+button.addEventListener("click", () => {
+    console.log("pulsamos click");
+});
 ```
-- **dbclick:** Cuando pulsamos dos veces seguidas el botón izquierdo del ratón
+
+-   **dbclick:** Cuando pulsamos dos veces seguidas el botón izquierdo del ratón
+
 ```js
 // Creamos un evento click
-button.addEventListener('dbclick',()=>{
-    console.log('pulsamos doble click');
-})
+button.addEventListener("dbclick", () => {
+    console.log("pulsamos doble click");
+});
 ```
-- **mouseenter:** cuando entramos en la zona que tiene el evento (Como lo que hacemos con HOVER en CSS)
+
+-   **mouseenter:** cuando entramos en la zona que tiene el evento (Como lo que hacemos con HOVER en CSS)
+
 ```js
 // Creamos un evento mouseenter
-box.addEventListener('mouseenter',()=>{
+box.addEventListener("mouseenter", () => {
     // Le cambiamos la clase 'red' por la clase 'green' cuando el mouse este dentro del 'box'
-    box.classList.replace('red','green');
+    box.classList.replace("red", "green");
     // Si no le configuramos 'mouseleave' la clase no se modificara asi salgamos de la caja
-})
+});
 ```
-- **mouseleave:** cuando salimos de la zona que tiene el evento (Como lo que hacemos con HOVER en CSS)
+
+-   **mouseleave:** cuando salimos de la zona que tiene el evento (Como lo que hacemos con HOVER en CSS)
+
 ```js
 // Creamos un evento mouseleave
-box.addEventListener('mouseenter',()=>{
+box.addEventListener("mouseenter", () => {
     // Le cambiamos la clase 'green' por la clase 'red' cuando el mouse salga del 'box'
-    box.classList.replace('green','red');
-})
+    box.classList.replace("green", "red");
+});
 ```
-- **mousedown:** Cuando pulsamos el boton izquierdo del ratón
+
+-   **mousedown:** Cuando pulsamos el boton izquierdo del ratón
+
 ```js
 // Creamos el evento mousedown
 box.addEventListener('mousedown' ()=>{
@@ -1211,45 +1244,55 @@ box.addEventListener('mousedown' ()=>{
 })
 ```
 
-- **mouseup:** Cuando soltamos el boton izquierdo del ratón 
+-   **mouseup:** Cuando soltamos el boton izquierdo del ratón
+
 ```js
 // Creamos el evento mouseup
 box.addEventListener('mouseup' ()=>{
     console.log('Has soltado el botón izquierdo en la caja');
 })
 ```
+
 **NOTA: mouseDown y mouseUp se usan en casos especificos, ejemplo cuando hacemos algo de arrastrar elementos, en esos casos es mejor usarlos en vez de click**
 
-- **mousemove:** Cuando movemos el ratón en el elemento al que le pongamos el evento
+-   **mousemove:** Cuando movemos el ratón en el elemento al que le pongamos el evento
+
 ```js
 // Creamos el evento mousemove
 box.addEventListener('mousemove' ()=>{
     console.log('Has movido el mouse dentro de la caja');
 })
 ```
+
 ### Eventos de Teclado
 
-- **keydown:** Cuando pulsamos una tecla
+-   **keydown:** Cuando pulsamos una tecla
+
 ```js
 // Creamos el evento keydown
 box.addEventListener('keydown' ()=>{
     console.log('Has pulsado una tecla');
 })
 ```
-- **keyup:** Cuando soltamos una tecla
+
+-   **keyup:** Cuando soltamos una tecla
+
 ```js
 // Creamos el evento keyup
 box.addEventListener('keyup' ()=>{
     console.log('Has soltado una tecla');
 })
 ```
-- **keypress:** Cuando pulsamos una tecla y no la soltamos
+
+-   **keypress:** Cuando pulsamos una tecla y no la soltamos
+
 ```js
 // Creamos el evento keypress
 box.addEventListener('keypress' ()=>{
     console.log('Estas pulsando una tecla');
 })
 ```
+
 La idea de hacer estos eventos es SABER que tecla hemos PULSADO, el cual lo realizamos con el OBJETO EVENTO, que veremos la proxima clase.
 
 # 27. Eventos II - Objeto Evento
@@ -1258,58 +1301,61 @@ El 99% de las veces que trabajemos con eventos usaremos el **objeto evento**. Es
 
 El objeto evento existe siempre y cuando haya un evento, este nos da mucha información y nos abre un abanico de opciones como:
 
-- Saber la información del evento
-- Saber en que parte se da click
-- Saber que tecla se esta pulsando
-- **TARGET** es de lo mas usado
+-   Saber la información del evento
+-   Saber en que parte se da click
+-   Saber que tecla se esta pulsando
+-   **TARGET** es de lo mas usado
 
-La mejor opción de trabajar con este objeto es enviarlo como parametro en el mismo evento **(e)**
+La mejor opción de trabajar con este objeto es enviarlo como parametro en el mismo evento `(e)`
 
 ```js
 // Pasamos el objeto evento como parametro, y podemos hacer lo queramos con ese parametro.
-input.addEventListener('keyup',(e)=>{
+input.addEventListener("keyup", (e) => {
     // Imprimimos el objeto (e) evento
     console.log(e);
-})
+});
 
-// Si queremos sacar información mas especifica tambien lo podemos hacer no hay limite
-podemos hacer lo queramos con ese parametro.
-input.addEventListener('keyup',(e)=>{
+// Si queremos sacar información mas especifica tambien lo podemos hacer no hay limite. podemos hacer lo queramos con ese parametro.
+input.addEventListener("keyup", (e) => {
     // Imprimimos el id del objeto que se oprimio
     console.log(e.explicitOriginalTarget.attributes[0].nodeValue);
-})
-
+});
 ```
+
 **ADICIONAL (Objeto global window)**
+
 ```js
 // Window es el objeto global, por lo que podemos omitirlo en varios casos como:
 
-addEventListener('click', (e) =>{
+addEventListener("click", (e) => {
     // Esto es lo mismo que poner window.addEventListener
-})
-alert('Esto es lo mimo que poner window.alert');
+    alert("Esto es lo mismo que poner window.alert");
+});
 ```
+
 **NOTA: Cuando trabajamos con una API nos enfrentamos a lo mismo que con un evento, esta nos devuelve x información y no sabemos que información, pero podemos obtenerla de esta misma manera**
 
 ## Target
 
-Lo mas importante del objeto evento es recordar **'Target'**, este hace referencia al punto de donde se origina el evento. POR EJEMPLO, el botón o la caja o lo que sea que se oprimio, target nos devuelve toda la INFORMACIÓN.
+Lo mas importante del objeto evento es recordar `target`, este hace referencia al punto de donde se origina el evento. POR EJEMPLO, el botón o la caja o lo que sea que se oprimio, target nos devuelve toda la INFORMACIÓN.
 
 ## Delegación de eventos (IMPORTANTE)
 
 Si tenemos muchos elementos que requieren el mismo evento, la forma mas recomendada seria por la delegación de eventos. (Se podria hacer un bucle y darle el evento a cada uno, pero esto consume MUCHISIMOS RECURSOS)
 
 La **delegación de eventos** consta en darle el evento de escucha al contenedor padre de estos elementos, y localizar en que elemento hijo fue que se hizo click.
+
 ```js
 // Contenedor de los item de la galeria (Elemento padre)
-const gallery =  document.getElementById('gallery');
+const gallery = document.getElementById("gallery");
 
 // Le damos la escucha al elemento padre
-gallery.addEventListener('click', (e)=>{
+gallery.addEventListener("click", (e) => {
     // Nos muestra a que item de la galeria le damos click (Conseguimos lo mismo que si le dieramos evento 1x1)
     console.log(e.target.textContent);
-})
+});
 ```
+
 Esto se puede aplicar a todo tipo de proyecto, por ejemplo en un formulario con muchos campos, añadirle a cada campo un evento, es un gasto de recursos muy muy grande.
 
 ## Evitar el reinicio de la pagina con forms
@@ -1317,33 +1363,562 @@ Esto se puede aplicar a todo tipo de proyecto, por ejemplo en un formulario con 
 Normalmente nosotros no enviamos el form directamente, escuchamos el submit y ejecutamos.
 
 ### Metodo Prevent.default
+
 Es el metodo que tienen los eventos para decirle que no queremos ejecutar el evento por defecto, esto funciona con todos los elementos HTML
 
 Sin embargo, se suele utilizar es en **formularios**, porque normalmente no queremos que el form se envie cuando trabajamos de forma asincrona. o algunas veces no queremos que pase cierta cosa hasta que suceda algo mas
 
 ```js
 // Botón de envio de formulario
-form.addEventListener('submit',(e) => {
-    // Conseguimos que el formulario no haga lo que tiene predefinico hacer, en este caso enviar el form
+form.addEventListener("submit", (e) => {
+    // Conseguimos que el botón no haga lo que tiene predefinico hacer, en este caso enviar el form
     e.preventDefault();
-})
+});
 
 // Esto funciona con todos los elementos html
 
 // Enlace a pagina
-link.addEventListener('click',(e) =>{
+link.addEventListener("click", (e) => {
     // Evita que vayamos al enlace que le definimos, no haria nada
     preventDefault();
-})
+});
 ```
+
 ## Los eventos, se pueden escuchar o forzar.
 
-Nosotros podemos forzar que un evento se dispare, se debe pasar el evento como función 
+Nosotros podemos forzar que un evento se dispare, se debe pasar el evento como función
+
 ```js
 // el elemento y el evento que queremos forzar(Se pasa como función)
 button.click();
 // Forzamos click en el botón
 ```
+
 Esto nos puede servir muchas veces, cuando necesitamos que se dispare un evento, pero sin esperar la interacción del usuario.
 
 # 28. DOM - Javascript crear e insertar elementos I
+
+Vamos a aprender a como crear e insertar elementos en el DOM de la primer forma, hay bastantes mas que veremos en las siguientes clases.
+
+## Crear un elemento
+
+Cuando queremos crear un elemento es lo mismo que crear una etiqueta en el DOCUMENTO, por eso el metodo `createElement` debe ir siempre con `document` asi: `document.createElement` NO puede ir con otro que no sea document.
+
+```js
+// Creamos un elemento de lista (createElement)
+const itemList = document.createElement("LI");
+// Le agregamos contenido al elemento creado
+itemList.textContent = "Lunes";
+```
+
+**NOTA: Hasta aquí ya creamos el elemento, PERO no lo hemos insertado en el DOM**
+
+## Insertar elemento al DOM
+
+Para añadir un elemento a la lista la primera forma es con esta sintaxis `parent.appendChild(element)`, SIEMPRE que queramos añadir un elemento ese elemento debe ser HIJO de un alguien, incluso del body.
+
+```js
+// daysList es una lista vacia, agregamos el elemento que creamos antes
+daysList.appendChild(itemList);
+```
+
+## InnerHTML
+
+InnerHTML la utilizamos si nosotros necesitamos insertar etiquetas HTML dentro de otra etiqueta y que el navegador las interprete como etiquetas y no como texto
+
+**EJEMPLO**
+
+Queremos insertar un `span` dentro de una etiqueta `h1`. Si utilizamos `textContent` para hacerlo el `span` se interpretaria como texto y no como etiqueta, en este caso necesitariamos utilizar `innerHTML`
+
+```js
+// De esta forma nos interpreta la etiqueta span como texto y nos apareceria tal cual
+title.textContent = "DOM - <span>Crear e insertar elementos</span>";
+
+// De esta forma el span se tomaria como etiqueta y no apareceria como texto en el H1
+title.innerHTML = "DOM - <span>Crear e insertar elementos</span>";
+```
+
+## Insertar un array en el DOM (Lista)
+
+Tenemos un array con los dias de la semana, y queremos agregarlo a una lista `ul` que tenemos en nuestro HTML.
+
+**BASE**
+
+```js
+// Lista vacia en el HTML
+const daysList = document.getElementById("daysList");
+
+// Select vacio en el HTML
+const daysSelect = document.getElementById("daysSelect");
+
+// Array con dias de la semana
+const days = [
+    "Lunes",
+    "Martes",
+    "Miercoles",
+    "Jueves",
+    "Viernes",
+    "Sabado",
+    "Domingo",
+];
+```
+
+**EJEMPLO**
+
+-   Primero lo vamos a realizar con `innerHTML` aunque esta NO es la mejor opción.
+
+```js
+for (const day of days) {
+    // Recorremos el array y agregamos dia a dia con innerHTML
+    /* Colocamos (+=) para que se agregue y no se sobreescriba */
+    daysList.innerHTML += `<li>${day}</li>`;
+}
+```
+
+**El problema de esta forma es que a CADA vuelta de bucle le estamos inyetando codigo HTML en el DOM, cada vez que nosotros agregamos un elemento el DOM se redibuja completamente y es un GRAN GASTO DE RECURSOS**
+
+## createDocumentFragment
+
+Debido al problema anterior se creo el `createDocumentFragmet()` para evitar que el navegador se sobre cargara con este tipo de operaciones.
+
+Basicamente un fragmento de codigo es una variable donde nosotros vamos a escribir todo el HTML que queremos inyectar en el documento, y despues de tenerlo todo lo inyectamos TODO el codigo de golpe y de esta forma ahorramos MUCHISIMOS recursos al navegador
+
+```js
+const fragment = document.createDocumentFragment();
+
+for (const day of days) {
+    // Creamos un elemento de lista (createElement)
+    const itemList = document.createElement("LI");
+    // Le agregamos contenido al elemento creado
+    itemList.textContent = day;
+
+    // Se lo agregamos al FRAGMENTO que creamos anteriormente
+    fragment.appendChild(itemList);
+}
+
+// Aca solo le agregamos a la lista nuestro fragmento y hacemos una UNICA inyección de codigo al DOM
+daysList.appendChild(fragment);
+```
+
+## Rellenar un SELECT desde JS
+
+Para agregar opciones a un select es algo muy parecido, aunque tenemos que modificar el atributo `value` del select al igual que el `textContent`.
+
+```js
+for (const day of days) {
+    // Creamos una opción de select (createElement)
+    const selectItem = document.createElement("OPTION");
+    // Le agregamos contenido al elemento creado
+    selectItem.textContent = day;
+    selectItem.setAttribute = ("value", day.toLowerCase);
+
+    // Se lo agregamos al FRAGMENTO que creamos anteriormente para no sobrecargar el DOM
+    fragment.appendChild(selectItem);
+}
+
+// Aca solo le agregamos al select nuestro fragmento y hacemos una UNICA inyección de codigo al DOM
+daysSelect.appendChild(fragment);
+```
+
+# 29. Traversing
+
+El **DOM traversing** se le llama a la practica de situarnos en un NODO y saber movernos hacia arriba y hacia abajo por el DOM.
+
+Los metodos para subir y bajar por el DOM los dividiremos en Padres, Hijos y Hermanos.
+
+## Metodos Padre
+
+```js
+// Este va a ser nuestro objeto de referencia para movernos por el DOM
+const parent = document.getElementById("parent");
+```
+
+-   `parentNode` : Devuelve el nodo padre (que puede NO ser un elemento)
+
+-   `parentElement` : Devuelve el nodo elemento padre
+
+```js
+// Nos imprime el elemento PADRE del elemento que referenciamos
+// (Si no tuvieramos 'nada' el padre seria body)
+console.log(parent.parentNode);
+console.log(parent.parentElement);
+```
+
+La supuesta diferencia es que `parentNode` puede que devuelva un padre que NO sea un elemento, pero según la experiencia de dorian NO hay ningún caso que esto se de.
+
+**NOTA: Los nodos de tipo document y documentFragment nunca van a tener un elemento padre, parentNode devolvera siempre null.**
+
+## Metodos Hijos
+
+Los nodos hijos son los que descienden de un padre.
+
+```js
+// Este va a ser nuestro objeto de referencia para movernos por el DOM
+const parent = document.getElementById("parent");
+```
+
+Metodos:
+
+-   `childNodes`: Devuelve todos los nodos hijos.
+
+-   `children`: Devuelve todos los nodos ELEMENTOS hijos.
+
+-   `firstChild`: Devuelve el primer nodo hijo.
+
+-   `firstElementChild`: Devuelve el primer nodo ELEMENTO hijo
+
+-   `lastChild`: Devuelve el último nodo hijo
+
+-   `lastElementChild`: Devuelve el último nodo ELEMENTO hijo
+
+-   `hasChildNodes()`: Devuelve true si el nodo tiene hijos y false sino tiene
+
+**RECOMENDACIÓN: Siempre que intentemos localizar etiquetas, usemos los metodos que localizan nodos elementos para que no hayan problemas**
+
+```js
+// Nos devuelve TODOS los nodos HIJOS, algunos como saltos de linea y eso que no nos son utiles.
+console.log(parent.childNodes);
+
+// Nos devuelve TODOS los nodos ELEMENTOS hijos, es decir las etiquetas que son hijas
+// Es la que se suele utilizar
+console.log(parent.children);
+
+// Nos devuelve el primer nodo hijo, que es normalmente un (salto de linea)
+console.log(parent.firstChild);
+
+// Nos devuelve el primer nodo ELEMENTO hijo, como la primera etiqueta hija
+console.log(parent.firstElementChild);
+
+// Nos devuelve el ultimo nodo hijo, que es normalmente un (salto de linea)
+console.log(parent.lastChild);
+
+// Nos devuelve el ultimo nodo ELEMENTO hijo, como la ultima etiqueta hija
+console.log(parent.lastElementChild);
+
+// Nos devuelve true or false si el nodo tiene o no hijos respectivamente
+console.log(parent.hasChildNodes());
+```
+
+## Metodos Hermanos
+
+```js
+// Este va a ser nuestro objeto de referencia para movernos por el DOM
+const parent = document.getElementById("parent");
+```
+
+-   `nextSibling`: Devuelve el siguiente nodo hermano
+
+-   `nextElementSibling`: Devuelve el siguiente nodo ELEMENTO hermano
+
+-   `previousSibling`: Devuelve el anterios nodo hermano
+
+-   `previousElementSibling`: Devuelve el anterior nodo ELEMENTO hermano
+
+```js
+// Nos devuelve el siguiente nodo hermano (Normalmente un salto de linea)
+console.log(parent.nextSibling);
+
+// Nos devuelve el siguiente nodo ELEMENTO hermano, como la etiqueta siguiente
+console.log(parent.nextElementSibling);
+
+// Nos devuelve el anterior nodo hermano (Normalmente un salto de linea)
+console.log(parent.previousSibling);
+
+// Nos devuelve el anterior nodo ELEMENTO hermano, como la etiqueta anterior
+console.log(parent.nextElementSibling);
+```
+
+## Cercano
+
+-   `closest(selector)`: Selecciona el nodo más cercano que cumpla con el selector, AUN ES EXPERIMENTAL. No es un estandar por lo que no veremos mas por el momento.
+
+# 30. DOM - Insertar, clonar y borrar elementos
+
+Las practicas las hacemos con una lista porque es de las formas mas entendibles, pero TODO ESTO se puede hacer con cualquier tipo del elemento del DOM.
+
+## Insertar elementos II
+
+1. Agregar un elemento de la forma principal
+
+```js
+// APPENDCHILD
+// De esta forma se coloca SIEMPRE de ULTIMO LUGAR
+list.appendChild(newElement);
+```
+
+2. Metodos de conveniencia de manipulación del DOM. Agregar un elemento utilizando un elemento de referencia
+
+-   `parent.insertBefore(newElement, referenceElement)`: Insertar un elemento ANTES del elemento de referencia.(Tiene soporte TOTAL)
+
+```js
+// INSERT BEFORE
+// Insertarlo antes de un elemento especifico
+
+// En este caso lo colocariamos ANTES del hijo 0, es decir de primeras
+list.insertBefore(newElement, list.children[0]);
+```
+
+## Otros metodos para insertar elementos (Con soporte hasta en internet explorer)
+
+Estos metodos tienen soporte TOTAL y requieren unas posiciones que vamos a ver a continuación.
+
+### Positions (Posiciones)
+
+-   `beforebegin`: Antes de que empiece (Hermano anterior del elemento)
+
+-   `afterbegin`: Despues de que empiece (Primer hijo del elemento)
+
+-   `beforeend`: Antes de que acabe (Ultimo hijo del elemento)
+
+-   `afterend`: Despues de que acabe de que acabe (Hermano siguiente del elemento)
+
+### Metodos para insertar elementos
+
+-   `parent.insertAdjacentElement(position, element)`: Inserta un elemento dependiendo la posición que le pasemos
+
+```js
+// Insert Adjacent Element
+// Inserta un elemento dependiendo la posición que le pasemos
+
+// En este caso lo inserta como hermano anterior de la lista
+list.insertAdjacentElement("beforebegin", newElement);
+
+// En este caso lo inserta como primer hijo de la lista
+list, insertAdjacentElement("afterbegin", newElement);
+
+// En este caso lo inserta como ultimo hijo de la lista
+list, insertAdjacentElement("beforeend", newElement);
+
+// En este caso lo inserta como hermano siguiente de la lista
+list, insertAdjacentElement("beforeend", newElement);
+```
+
+**NOTA: Tener muy en cuenta la referencia que le pasemos, porque podemos desbordar y generar error**
+
+-   `parent.insertAdjacentHTML(position, <li>Etiqueta HTML</li>)`: Este es muy poco usado, en vez de pasarle un elemento, le pasamos directamente la etiqueta que queramos crear (Las posiciones funcionan igual)
+
+-   `parent.insertAdjacentText(position, texto)`: Este tambien es muy poco habitual, sencillamente estamos introduciento un texto (Las posiciones funcionan igual)
+
+## Reemplazar un elemento hijo con otro
+
+-   `parent.replaceChild(newChild, oldChild)`: Reemplaza un hijo por otro.
+
+```js
+// Reemplazando elementos hijos
+// Reemplazamos el hijo de la posición 1 por el nuevo elemento
+list.replaceChild(newElement, list.children[1]);
+```
+
+## Otros metodos para insertar elemento (Con soporte casi absoluto)
+
+Estos metodos que veremos hacen lo mismo que los anteriores y con una sintaxis mas sencilla, tienen un soporte practicamente absoluto y en el unico navegador que no se soporta es en **Internet Explorer** que a dia de hoy ya no existe, por lo que es muy recomendable usar estos metodos que se denominan **DOM manipulation convenience methods**
+
+**Metodor para insertar**
+
+-   `parent.before()`: Antes de que empiece (hermano anterior)
+-   `parent.prepend()`: Despues de que empiece (primer hijo)
+-   `parent.append()`: Antes de que termine (Ultimo hijo)
+-   `parent.after()`: Despues de que termine (Hermano siguiente)
+
+```js
+// Lo insertamos como hermano de la lista
+list.before(newElement);
+
+// Lo insertamos como primer hijo de la lista
+list.prepend(newElement);
+
+// Lo insertamos como ultimo hijo de la lista
+list.append(newElement);
+
+// Lo insertamos como hermano siguiente de la lista
+list.after(newElement);
+```
+
+**Metodor para reemplazar**
+
+-   `child.replaceWith(newChild)`
+
+```js
+// Reemplazamos un hijo de la lista por el nuevo elemento
+list.children[0].replaceWith(newElement);
+```
+
+## Clonar elementos
+
+Para clonar elementos tenemos estos metodos
+
+-   `element.cloneNode(true||false)`: Clona el nodo. Si le pasamos `true` clona TODO el elemento con los hijo, si le pasamos `false` clona solo el elemento SIN los hijos
+
+```js
+// Creamos una copia de la lista, CON los elementos hijos
+list.after(list.cloneNode(true));
+
+// Creamos una copia de la lista, SIN los elementos hijos (Solo clonamos la lista)
+list.after(list.cloneNode(false));
+```
+
+Esto se suele hacer cuando tenemos un elemento que se va a repetir en varias ocaciones y **NO TIENE UN ID**
+
+## Eliminar elementos
+
+Para eliminar elementos tenemos los siguientes metodos
+
+-   `element.remove()`: Elimina el nodo del DOM
+-   `element.removeChild(child)`: Elimina el nodo hijo del DOM
+
+```js
+// Eliminamos la lista
+list.remove();
+
+// Eliminamos 1 hijo de la lista
+list.removeChild(list.children[0]);
+```
+
+# 31. Objetos Nativos y timers
+
+## Objeto window
+
+Es el objeto GLOBAL, de él descienden todos los objetos.
+
+Siempre que no pongamos nada antes, el navegador va a entender que nos estamos refiriendo a `window`.
+
+-   `alert()`
+-   `prompt()`
+-   `confirm()`
+
+Esto es igual que tener window antes, por ejemplo `window.document`, `window.alert()`, etc...
+
+**Evento de carga de la pagina**
+
+```js
+// Dentro le colocamos lo que queremos que pase cuando carga la pagina
+addEventListener("load", (e) => {
+    console.log(e);
+});
+```
+
+## Objeto console
+
+Es el objeto que contiene la consola del navegador
+
+-   `console.log()`: Imprime en la consola lo que queramos
+
+-   `console.dir()`: Imprime tambien en consola, sin embargo hay una pequeña diferencia y veces donde `console.dir` imprime mas información que `console.log`.
+
+-   `console.error()`: Podemos imprimir mensajes de ERROR en la consola
+
+-   `console.table()`: La visualización es en forma de 'tabla' y es MUCHO mas facil de verlo, por si lo necesitamos
+
+## Objeto Location
+
+Es el objeto que contiene la barra de direcciones
+
+Algunos metodos de este objeto son:
+
+-   `location.href`: Nos devuelve la URL y tambien nos sirve para cambiar el valor de la URL (Es una forma de redirigir a paginas a traves de JS)
+
+-   `location.protocol`: Nos devuelve el protocolo de la pagina (http || https || ftp)
+
+-   `location.host`: Nos devuelve el dominio principal que estemos viendo. No nos devuelve rutas ni nada, solo el dominio, lo que va antes del `/`
+
+-   `location.pathname`: Nos devuelve unicamente la ruta en la que estamos, NO el dominio sino lo que va DESPUES del `/`
+
+-   `location.hash`: Es una forma de pasar parametros entre paginas, podemos utilizarlo para tener 1 solo HTML y en función del `hash` que pasemos cargar una información u otra
+
+-   `location.reload()`: Recarga la pagina
+
+Tiene muchos otros metodos que podemos consultar
+
+## Objeto History
+
+Este objeto trabaja con el historial de la pestaña que estamos navegando
+
+Estos son todos los metodos de este objeto:
+
+-   `history.back()`: Para ir atras, es el botón atras del navegador
+
+-   `history.forward()`: Para ir adelante, es el botón adelante del navegador
+
+-   `history.go(n | -n)`: Podemos navegar a traves del historial X paginas hacia adelante o X paginas hacia atras
+
+-   `history.length`: Sabemos cuantas paginas tiene el historial en esta pestaña
+
+## Objeto Date
+
+Este objeto trabaja con fechas, tiene una peculiaridad y es que para utilizarlo necesitamos INSTANCIARLO (Crearlo).
+
+Tiene muchisimos metodos aunque afortunadamente son bastante intuitivos y funciona practicamente igual que el objeto date de TODOS los lenguajes de programación
+
+```js
+const date = new Date();
+
+// Obtenemos el dia de hoy (Empieza a contar desde 0, donde 0 es domingo y 6 es Sabado)
+console.log(date.getDay);
+
+// Obtenemos el mes actual (Empieza a contar desde 0, donde 0 es enero y 11 es Diciembre)
+console.log(date.getMonth);
+
+// Obtenemos el dia del mes (15,16,20,etc...)
+console.log(date.getDate);
+
+// Obtenemos toda la fecha
+console.log(date);
+```
+
+Hay muchos metodos mas que podemos consultar en caso de llegarlos a necesitar
+
+## Timers
+
+### Timeout 
+
+Podemos establecer el 'delay' o el tiempo de espera de una función antes de su ejecución. La ejecución se lee y pasados X segundos se ejecuta.
+
+-   `setTimeout(()=>{code}, delay-in-miliseconds)`: Hace que se ejecute la función despues del delay. Si lo referenciamos mediante una variable/constante podemos pararlo con `clearTimeout(reference)`
+
+```js
+const saludar = () => {
+    console.log("hola");
+};
+
+// Cuando hagamos click en el botón se va a tomar 3 segundos (3000ms) para ejecutar la función saludar
+button.addEventListener("click", () => {
+    // Cuando vamos a usar una función externa, no es necesario colocar '()=>'
+    setTimeout(saludar, 3000);
+
+    // Si la función la escribieramos ahí mismo si seria como funcion flecha
+    setTimeout(() => {
+        console.log("Adios");
+    }, 3000);
+});
+```
+
+Si queremos detener la ejecución de la función lo podemos hacer con `clearTimeout(reference)`
+
+```js
+// Es necesario tener la funcion referenciada en una variable o constante
+const timeOut = setTimeout(() => {
+    console.log("adios");
+}, 3000);
+
+// Cuando le demos click al función la funcion se detendra
+button.addEventListener("click", () => {
+    // Aca llamamos el metodo y le pasamos la función que queremos detener
+    clearTimeout(timeOut);
+});
+```
+### Interval 
+
+Con interval la función no se ejecuta una sola vez, se ejecuta todas las veces cada X segundos
+
+- `setInterval(()=>{code}, delay-in-miliseconds)`: Hace que se ejecute la función cada delay milisegundos, Si lo referenciamos mediante una variable/constante podemos pararlo con `clearInterval(referencia)`
+
+```js
+// Cada 3 segundos se ejecutara la función saludar
+const interval = setInterval(saludar, 3000);
+
+// Cuando le demos click al botón se detendra el interval
+button.addEventListener('click',()=>{
+    // Lo usamos para frenar el interval (El interval debe estar referenciado)
+    clearInterval(interval);
+})
+```
